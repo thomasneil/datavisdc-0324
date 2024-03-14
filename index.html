@@ -5,6 +5,13 @@
 
   d3.csv("set1_jobtitles.csv", function(data) {
     for (var i = 0; i < data.length; i++) {
+
+      if(data[i].TimeIdeating=="5 hours or less"){data[i].centerx=10;}
+      if(data[i].TimeIdeating=="11–20 hours"){data[i].centerx=30; }
+      if(data[i].TimeIdeating=="6–10 hours"){data[i].centerx=20; }
+      if(data[i].TimeIdeating=="None"){data[i].centerx=0; }
+      if(data[i].TimeIdeating==[^not chosen]){data[i].centerx=0; }
+      
         console.log(data[i].TimeIdeating);
     }
 });
