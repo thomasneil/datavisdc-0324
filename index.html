@@ -23,7 +23,29 @@
       console.log(data[i].centery);
     }
 });
-      var svg = d3.select("svg")
-              .attr("width", 500)
-              .attr("height", 500);
+
+
+const width = 800;
+const height = 600;
+const svg = d3.select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+const simulation = d3.forceSimulation()
+  .force("charge", d3.forceManyBody().strength(-50))
+  .force("center", d3.forceCenter(width / 2, height / 2))
+  .force("x", d3.forceX())
+  .force("y", d3.forceY())
+  .force("cluster", d3.forceCluster().strength(0.2));
+
+  const bubbles = svg.selectAll("circle")
+  .data(data)
+  .enter()
+  .append("circle")
+  .attr("r", 10) // Adjust bubble radius
+  .attr("fill", (d) => d3.schemeCategory10[d.DataVizRoles_collapsed]) // Color by cluster
+  .call(simulation.nodes())
+  .attr("cx", (d) => d.centerx)
+  .attr("cy", (d) => d.centery);
 </script>
