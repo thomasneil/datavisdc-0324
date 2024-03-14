@@ -10,7 +10,7 @@
       if(data[i].TimeIdeating=="11–20 hours"){data[i].centerx=30; }
       if(data[i].TimeIdeating=="6–10 hours"){data[i].centerx=20; }
       if(data[i].TimeIdeating=="None"){data[i].centerx=0; }
-      console.log(data[i].TimeIdeating);
+      console.log(data[i].centerx);
 
 
       if(data[i].TimeProducingViz=="5 hours or less"){data[i].centery=10;}
@@ -18,7 +18,7 @@
       if(data[i].TimeProducingViz=="6–10 hours"){data[i].centery=20; }
       if(data[i].TimeProducingViz=="None"){data[i].centery=0; }
       
-      console.log(data[i].TimeProducingViz);
+      console.log(data[i].centery);
     }
 });
       var svg = d3.select("svg")
